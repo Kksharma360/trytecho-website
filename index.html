@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03090a">
+  <meta name="description"
+    content="TryTecho builds websites, mobile apps, AI automation and custom software to help businesses innovate and grow.">
+  <title>TryTecho — Build Today for a Smarter Tomorrow</title>
+  <link rel="icon" type="image/png" href="assets/TryTechoLogo.png">
+  <link rel="apple-touch-icon" href="assets/TryTechoLogo.png">
+  <meta property="og:title" content="TryTecho — Build Today for a Smarter Tomorrow">
+  <meta property="og:description" content="TryTecho builds websites, mobile apps, AI automation and custom software to help businesses innovate and grow.">
+  <meta property="og:image" content="assets/TryTechoLogo.png">
+  <style>
+    :root {
+      --bg: #03090a;
+      --panel: rgba(13, 21, 22, .88);
+      --panel-border: rgba(255, 255, 255, .095);
+      --text: #f7f8f8;
+      --muted: #c0c8c8;
+      --teal: #00f1d0;
+      --teal-strong: #00e8ca;
+      --max-width: 1380px;
+      --gutter: clamp(20px, 4.9vw, 76px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .wrap {
+      width: min(calc(100% - var(--gutter) * 2), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .hero-page {
+      min-height: max(760px, 100svh);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(ellipse at 76% 36%, rgba(0, 237, 204, .10), transparent 32%),
+        linear-gradient(118deg, #020708 4%, #03090a 47%, #061112 100%);
+    }
+
+    .hero-scene {
+      z-index: -2;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(77%, 1180px);
+      height: 83%;
+      background-image: url("assets/office-scene.webp");
+      background-size: cover;
+      background-position: center center;
+      opacity: .97;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+    }
+
+    .hero-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, #03090a 0%, rgba(3, 9, 10, .98) 23%, rgba(3, 9, 10, .82) 37%, rgba(3, 9, 10, .34) 55%, rgba(3, 9, 10, .04) 78%),
+        linear-gradient(0deg, #03090a 0%, rgba(3, 9, 10, .86) 9%, transparent 34%);
+    }
+
+    .site-header {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+      max-width: 175px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(0, 241, 208, 0.18));
+      transition: transform 0.22s ease, filter 0.22s ease;
+    }
+
+    .brand:hover .brand-logo-img {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 16px rgba(0, 241, 208, 0.35));
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 38px;
+      display: block;
+      overflow: visible;
+    }
+
+    .brand-name {
+      font-size: 23px;
+      line-height: 1;
+      font-weight: 760;
+      letter-spacing: -.8px;
+    }
+
+    .brand-name span {
+      font-weight: 560;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(19px, 2.25vw, 35px);
+      margin-left: auto;
+      margin-right: clamp(20px, 3.4vw, 52px);
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: #f1f5f4;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--teal);
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      min-height: 49px;
+      padding: 0 23px;
+      border-radius: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 680;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn:focus-visible,
+    .nav-toggle:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 4px;
+    }
+
+    .btn-primary {
+      color: #021210;
+      background: var(--teal);
+      box-shadow: 0 0 26px rgba(0, 241, 208, .09);
+    }
+
+    .btn-primary:hover {
+      background: #45ffe7;
+      box-shadow: 0 0 31px rgba(0, 241, 208, .21);
+    }
+
+    .btn-ghost {
+      color: #f4f8f7;
+      background: rgba(2, 8, 9, .46);
+      border-color: rgba(0, 241, 208, .82);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(0, 241, 208, .10);
+    }
+
+    .btn .arrow {
+      font-size: 20px;
+      line-height: 0;
+      font-weight: 400;
+      margin-top: -2px;
+    }
+
+    .header-cta {
+      min-height: 45px;
+      padding-inline: 20px;
+      border-radius: 14px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: white;
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-main {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    .hero-copy {
+      width: min(100%, 660px);
+      padding-bottom: 4px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      color: #d5e0de;
+      font-size: 10px;
+      font-weight: 600;
+      margin-bottom: 23px;
+    }
+
+    .eyebrow .dot {
+      color: var(--teal);
+      font-size: 13px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(49px, 5vw, 74px);
+      line-height: .94;
+      letter-spacing: -.055em;
+      margin: 0;
+      max-width: 690px;
+      text-wrap: balance;
+    }
+
+    h1 .accent {
+      color: var(--teal);
+    }
+
+    .hero-description {
+      max-width: 480px;
+      font-size: clamp(14px, 1.18vw, 17px);
+      line-height: 1.62;
+      color: #d9e0df;
+      margin: 23px 0 27px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-actions .btn {
+      min-height: 49px;
+    }
+
+    .stats {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      max-width: 665px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      min-width: 125px;
+      padding: 0 27px 0 0;
+      margin-right: 27px;
+      border-right: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+      margin-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(23px, 2.1vw, 30px);
+      letter-spacing: -.045em;
+      line-height: 1.2;
+      font-weight: 740;
+    }
+
+    .stat strong .star {
+      color: var(--teal);
+      font-size: .84em;
+      margin-left: 2px;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 11px;
+      color: #c9d1d0;
+      margin-top: 5px;
+      white-space: nowrap;
+    }
+
+    .service-grid {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+      padding-bottom: 27px;
+    }
+
+    .service-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 91px;
+      padding: 16px 17px;
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(18, 27, 28, .92), rgba(9, 16, 17, .88));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .025);
+      transition: transform .23s ease, border-color .23s ease, background .23s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 241, 208, .4);
+      background: rgba(15, 31, 31, .96);
+    }
+
+    .service-icon {
+      width: 47px;
+      height: 47px;
+      flex: 0 0 47px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--teal);
+      border-radius: 12px;
+      color: var(--teal);
+      background: rgba(0, 241, 208, .035);
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-card h2 {
+      font-size: 13px;
+      line-height: 1.25;
+      font-weight: 690;
+      margin: 0 0 6px;
+      letter-spacing: -.02em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: #bdc7c6;
+      font-size: 10px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .content-section {
+      position: relative;
+      padding: clamp(76px, 9vw, 124px) 0;
+      background: #050c0d;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .section-label {
+      color: var(--teal);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+
+    .section-heading {
+      font: 700 clamp(38px, 4.7vw, 64px)/1.02 Georgia, "Times New Roman", serif;
+      letter-spacing: -.045em;
+      max-width: 780px;
+      margin: 0;
+    }
+
+    .section-heading em {
+      color: var(--teal);
+      font-style: normal;
+    }
+
+    .section-intro {
+      color: #aebbbb;
+      line-height: 1.75;
+      max-width: 650px;
+      font-size: 15px;
+      margin: 20px 0 0;
+    }
+
+    .service-detail-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-card {
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 17px;
+      background: linear-gradient(145deg, rgba(16, 27, 28, .96), rgba(7, 14, 15, .94));
+    }
+
+    .detail-card .service-icon {
+      margin-bottom: 24px;
+    }
+
+    .detail-card h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .detail-card p {
+      margin: 0;
+      color: #aebbbb;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* Hero Live Showcase Pill */
+    .hero-work-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      background: rgba(0, 241, 208, 0.08);
+      border: 1px solid rgba(0, 241, 208, 0.32);
+      border-radius: 999px;
+      font-size: 12px;
+      color: #e4fcf8;
+      margin-bottom: 22px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .hero-work-pill:hover {
+      background: rgba(0, 241, 208, 0.16);
+      border-color: var(--teal);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 241, 208, 0.22);
+    }
+
+    .pill-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00f1d0;
+      box-shadow: 0 0 10px #00f1d0;
+      animation: pulse-dot 2s infinite ease-in-out;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+      }
+    }
+
+    .pill-label {
+      color: var(--teal);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .pill-title {
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .pill-tag {
+      background: rgba(0, 241, 208, 0.2);
+      color: var(--teal);
+      padding: 2px 9px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 700;
+      border: 1px solid rgba(0, 241, 208, 0.35);
+    }
+
+    .pill-arrow {
+      color: var(--teal);
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-work-pill:hover .pill-arrow {
+      transform: translateY(2px);
+    }
+
+    /* Showcase Portfolio Section */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .showcase-card {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(14, 25, 26, 0.94), rgba(7, 13, 14, 0.94));
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 241, 208, 0.45);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 241, 208, 0.1);
+    }
+
+    .showcase-browser {
+      background: #091213;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .browser-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .browser-dots .b-red {
+      background: #ff5f56;
+    }
+
+    .browser-dots .b-yellow {
+      background: #ffbd2e;
+    }
+
+    .browser-dots .b-green {
+      background: #27c93f;
+    }
+
+    .browser-address {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 5px 11px;
+      font-size: 11px;
+      color: #9ab0ad;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: ui-monospace, monospace;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .browser-address svg {
+      width: 12px;
+      height: 12px;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .showcase-preview-wrapper {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #04090a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .showcase-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .showcase-card:hover .showcase-preview-img {
+      transform: scale(1.03);
+    }
+
+    .showcase-floating-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(3, 9, 10, 0.9);
+      border: 1px solid rgba(0, 241, 208, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .showcase-floating-badge .badge-icon {
+      color: var(--teal);
+      font-size: 13px;
+    }
+
+    .showcase-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .showcase-category-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .showcase-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      font-weight: 700;
+      background: rgba(0, 241, 208, 0.08);
+      border: 1px solid rgba(0, 241, 208, 0.22);
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .showcase-status {
+      font-size: 11px;
+      color: #92a4a2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .showcase-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      display: inline-block;
+      box-shadow: 0 0 6px #10b981;
+    }
+
+    .showcase-title {
+      font: 700 24px/1.2 Georgia, serif;
+      letter-spacing: -0.02em;
+      color: #f7f8f8;
+      margin: 0 0 10px;
+    }
+
+    .showcase-desc {
+      color: #b0c0bf;
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0 0 20px;
+      flex-grow: 1;
+    }
+
+    .showcase-impact-box {
+      background: rgba(0, 241, 208, 0.04);
+      border: 1px solid rgba(0, 241, 208, 0.18);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .impact-stat strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .impact-stat span {
+      display: block;
+      font-size: 11px;
+      color: #9cb0ad;
+      margin-top: 2px;
+    }
+
+    .impact-stat.highlight strong {
+      color: var(--teal);
+    }
+
+    .showcase-tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 24px;
+    }
+
+    .tech-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #c5d2d0;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .showcase-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .showcase-actions .btn {
+      flex: 1;
+    }
+
+    /* Modal Overlay & Dialog */
+    .case-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(2, 6, 7, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .case-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .case-modal-dialog {
+      background: #091314;
+      border: 1px solid rgba(0, 241, 208, 0.3);
+      border-radius: 20px;
+      width: min(720px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-hero-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 12px;
+      margin-top: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-section {
+      margin-top: 20px;
+    }
+
+    .modal-section h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin: 0 0 8px;
+    }
+
+    .modal-section p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #bac8c6;
+      margin: 0;
+    }
+
+    .modal-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+      color: #c5d2d0;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .modal-list li::before {
+      content: "✦";
+      color: var(--teal);
+      margin-right: 8px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: .9fr 1fr;
+      gap: clamp(35px, 8vw, 100px);
+      align-items: center;
+    }
+
+    .about-panel {
+      padding: 34px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(0, 241, 208, .09), rgba(255, 255, 255, .015));
+      border: 1px solid rgba(0, 241, 208, .14);
+    }
+
+    .about-panel strong {
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -.05em;
+    }
+
+    .about-panel p {
+      color: #afbfbd;
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 43px;
+    }
+
+    .price-card {
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      background: rgba(12, 20, 21, .85);
+    }
+
+    .price-card.featured {
+      border-color: rgba(0, 241, 208, .48);
+      box-shadow: 0 0 40px rgba(0, 241, 208, .05);
+    }
+
+    .price-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .price-card p {
+      min-height: 54px;
+      margin: 0 0 18px;
+      color: #adbcba;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .price-card strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 27px;
+      color: #c3cecc;
+      font-size: 12px;
+      line-height: 2.1;
+    }
+
+    .price-card li::before {
+      content: "✓";
+      color: var(--teal);
+      margin-right: 9px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 42px;
+    }
+
+    .blog-card {
+      padding: 25px;
+      min-height: 200px;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 17px;
+      background: rgba(13, 22, 23, .82);
+    }
+
+    .blog-card span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--teal);
+    }
+
+    .blog-card h3 {
+      font-size: 18px;
+      line-height: 1.3;
+      margin: 18px 0 10px;
+    }
+
+    .blog-card p {
+      color: #adbcba;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .contact-section {
+      padding: 75px 0 90px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 241, 208, .10), transparent 60%), #020708;
+      border-top: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-form {
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      padding: 25px;
+      background: rgba(12, 20, 21, .9);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #c3cfcd;
+      font-size: 12px;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      color: #f4f8f7;
+      background: #071011;
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: 9px;
+      padding: 12px 13px;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0, 241, 208, .07);
+    }
+
+    .field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .contact-note {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #7f9290;
+      margin: 12px 0 0;
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      background: #020607;
+      padding: 24px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      color: #8e9c9b;
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 30;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      pointer-events: none;
+      padding: 13px 18px;
+      background: #0e2423;
+      border: 1px solid rgba(0, 241, 208, .5);
+      color: #effffb;
+      border-radius: 12px;
+      font-size: 13px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+      transition: opacity .25s ease, transform .25s ease;
+      max-width: min(90vw, 550px);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @media (min-width: 1500px) {
+      .hero-copy {
+        width: 690px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 17px;
+        margin-right: 15px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+      .hero-scene {
+        width: 78%;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-card {
+        min-height: 81px;
+      }
+
+      .hero-page {
+        min-height: 860px;
+      }
+
+      .service-detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 780px) {
+      :root {
+        --gutter: 22px;
+      }
+
+      .hero-page {
+        min-height: auto;
+      }
+
+      .site-header {
+        min-height: 74px;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 34px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .nav-toggle {
+        display: flex;
+        margin-left: auto;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        right: 0;
+        margin: 0;
+        width: min(260px, calc(100vw - 44px));
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, .12);
+        border-radius: 15px;
+        background: rgba(4, 12, 13, .97);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, .4);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(0, 241, 208, .07);
+      }
+
+      .hero-scene {
+        top: 80px;
+        width: 100%;
+        height: 460px;
+        opacity: .73;
+        background-position: 60% center;
+        -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, .9) 55%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, .9) 55%, transparent 100%);
+      }
+
+      .hero-page::before {
+        background: linear-gradient(90deg, rgba(3, 9, 10, .90), rgba(3, 9, 10, .55) 50%, rgba(3, 9, 10, .23)), linear-gradient(0deg, #03090a 0%, rgba(3, 9, 10, .2) 70%, rgba(3, 9, 10, .2));
+      }
+
+      .hero-main {
+        min-height: 610px;
+        padding-top: 42px;
+        padding-bottom: 44px;
+        align-items: flex-start;
+      }
+
+      .hero-copy {
+        width: 100%;
+        padding-top: 0;
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        margin-bottom: 22px;
+        letter-spacing: .2em;
+      }
+
+      h1 {
+        font-size: clamp(47px, 11vw, 66px);
+        line-height: .97;
+        max-width: 560px;
+      }
+
+      .hero-description {
+        max-width: 420px;
+        font-size: 15px;
+        margin: 22px 0 25px;
+      }
+
+      .stats {
+        margin-top: 37px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 20px;
+        max-width: 390px;
+      }
+
+      .stat {
+        min-width: 0;
+        margin-right: 0;
+        padding-right: 12px;
+        border-right: 0;
+      }
+
+      .stat strong {
+        font-size: 25px;
+      }
+
+      .stat span {
+        font-size: 10px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-bottom: 22px;
+      }
+
+      .service-card {
+        padding: 13px;
+        gap: 10px;
+        min-height: 83px;
+        border-radius: 13px;
+        align-items: flex-start;
+      }
+
+      .service-icon {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        border-radius: 10px;
+      }
+
+      .service-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .service-card h2 {
+        font-size: 11px;
+        margin: 2px 0 5px;
+      }
+
+      .service-card p {
+        white-space: normal;
+        font-size: 9px;
+      }
+
+      .content-section {
+        padding: 70px 0;
+      }
+
+      .service-detail-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .detail-card {
+        padding: 19px;
+      }
+
+      .detail-card h3 {
+        font-size: 15px;
+      }
+
+      .detail-card p {
+        font-size: 12px;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .showcase-impact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-work-pill {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .about-panel {
+        padding: 25px;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card p {
+        min-height: 0;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 420px) {
+      :root {
+        --gutter: 16px;
+      }
+
+      .hero-main {
+        min-height: 630px;
+      }
+
+      .hero-actions {
+        gap: 9px;
+      }
+
+      .hero-actions .btn {
+        min-height: 46px;
+        padding-inline: 16px;
+        font-size: 12px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 72px;
+        align-items: center;
+      }
+
+      .service-card h2 {
+        font-size: 12px;
+      }
+
+      .service-card p {
+        font-size: 10px;
+      }
+
+      .service-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero-page" id="home" aria-label="TryTecho homepage hero">
+    <div class="hero-scene" aria-hidden="true"></div>
+    <header class="site-header wrap">
+      <a class="brand" href="#home" aria-label="TryTecho home">
+        <img src="assets/TryTechoLogo.png" alt="TryTecho" class="brand-logo-img">
+      </a>
+      <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#blog">Blog</a>
+      </nav>
+      <a class="btn btn-primary header-cta" href="#contact">Let’s Talk <span class="arrow">→</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav"
+        aria-expanded="false">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </header>
+
+    <main class="hero-main wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>Technology</span><span class="dot">•</span><span>People</span><span
+            class="dot">•</span><span>Progress</span></div>
+        <h1>Build Today<br>for a <span class="accent">Smarter</span><br><span class="accent">Tomorrow.</span></h1>
+        <p class="hero-description">Websites, mobile apps, AI automation and custom software to help businesses innovate
+          and grow.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">Explore Our Work <span class="arrow">↓</span></a>
+          <a class="btn btn-ghost" href="#contact">Start a Project <span class="arrow">→</span></a>
+        </div>
+        <div class="stats" aria-label="Company metrics">
+          <div class="stat"><strong>100+</strong><span>Projects Completed</span></div>
+          <div class="stat"><strong>4.9<span class="star">★</span></strong><span>Average Rating</span></div>
+          <div class="stat"><strong>6+</strong><span>Years of Experience</span></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="service-grid wrap" id="services" aria-label="Our core services">
+      <a class="service-card" href="#web-development">
+        <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="14" rx="2" />
+            <path d="M8 21h8M12 18v3M3 8h18M7 12h4M7 15h2" />
+            <circle cx="17" cy="12" r="1" />
+          </svg></span>
+        <span>
+          <h2>Web Development</h2>
+          <p>High-performance websites</p>
+        </span>
+      </a>
+      <a class="service-card" href="#mobile-apps">
+        <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6.5" y="2" width="11" height="20" rx="2.2" />
+            <path d="M10 5h4M11 18.5h2" />
+          </svg></span>
+        <span>
+          <h2>Mobile Apps</h2>
+          <p>iOS &amp; Android apps</p>
+        </span>
+      </a>
+      <a class="service-card" href="#ai-automation">
+        <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.8 14 8l5.2 2-5.2 2-2 5.2-2-5.2-5.2-2L10 8z" />
+            <path d="m18.2 16.6 1.1 2.2 2.2 1.1-2.2 1.1-1.1 2.2-1.1-2.2-2.2-1.1 2.2-1.1z"
+              transform="translate(-1 -1) scale(.9)" />
+          </svg></span>
+        <span>
+          <h2>AI &amp; Automation</h2>
+          <p>Save time, work smarter</p>
+        </span>
+      </a>
+      <a class="service-card" href="#custom-software">
+        <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+          </svg></span>
+        <span>
+          <h2>Custom Software</h2>
+          <p>Built for your business</p>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section" aria-labelledby="services-heading">
+    <div class="wrap">
+      <p class="section-label">What we build</p>
+      <h2 class="section-heading" id="services-heading">Technology that works for <em>your business.</em></h2>
+      <p class="section-intro">From your first idea to the systems that keep your business moving, we shape practical
+        digital products around the way you work.</p>
+      <div class="service-detail-grid">
+        <article class="detail-card" id="web-development"><span class="service-icon"><svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="14" rx="2" />
+              <path d="M8 21h8M12 18v3M3 8h18" />
+            </svg></span>
+          <h3>Web Development</h3>
+          <p>Fast, responsive websites and web applications designed around your customers and business goals.</p>
+        </article>
+        <article class="detail-card" id="mobile-apps"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6.5" y="2" width="11" height="20" rx="2.2" />
+              <path d="M10 5h4M11 18.5h2" />
+            </svg></span>
+          <h3>Mobile Apps</h3>
+          <p>Thoughtful mobile experiences for iOS and Android, from customer-facing apps to internal business tools.
+          </p>
+        </article>
+        <article class="detail-card" id="ai-automation"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.8 14 8l5.2 2-5.2 2-2 5.2-2-5.2-5.2-2L10 8z" />
+            </svg></span>
+          <h3>AI &amp; Automation</h3>
+          <p>Useful AI integrations and automated workflows that reduce repetitive work and connect your tools.</p>
+        </article>
+        <article class="detail-card" id="custom-software"><span class="service-icon"><svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+            </svg></span>
+          <h3>Custom Software</h3>
+          <p>Dashboards, portals, integrations and tailored software for processes standard tools cannot handle.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="work" aria-labelledby="work-heading">
+    <div class="wrap">
+      <p class="section-label">Featured Client Projects</p>
+      <h2 class="section-heading" id="work-heading">Real businesses. <em>Real measurable impact.</em></h2>
+      <p class="section-intro">Explore live websites engineered by TryTecho — delivering organic customer discovery,
+        high-conversion funnels, and real daily revenue.</p>
+
+      <div class="showcase-grid">
+        <!-- Project 1: Mourya Dry Cleaners -->
+        <article class="showcase-card" id="mourya-dry-cleaners">
+          <div class="showcase-browser">
+            <div class="browser-dots">
+              <span class="b-red"></span>
+              <span class="b-yellow"></span>
+              <span class="b-green"></span>
+            </div>
+            <div class="browser-address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span>https://mouryadrycleaners.in</span>
+            </div>
+          </div>
+          <div class="showcase-preview-wrapper">
+            <img class="showcase-preview-img" src="assets/mourya-desktop.png" alt="Mourya Dry Cleaners Website Preview"
+              loading="lazy">
+            <div class="showcase-floating-badge">
+              <span class="badge-icon">🔥</span>
+              <span>Generating 3–4 Inbound Leads Daily</span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <div class="showcase-category-row">
+              <span class="showcase-tag">Local Business · Fabric Care</span>
+              <span class="showcase-status">Live in Production</span>
+            </div>
+            <h3 class="showcase-title">Mourya Dry Cleaners</h3>
+            <p class="showcase-desc">A customer-first web platform engineered for Gurugram’s premier dry cleaning &amp;
+              laundry business. Designed for frictionless doorstep pickup bookings, instant WhatsApp ordering, and
+              targeted local SEO.</p>
+
+            <div class="showcase-impact-box">
+              <div class="impact-stat highlight">
+                <strong>3–4 Leads / Day</strong>
+                <span>Direct customer bookings</span>
+              </div>
+              <div class="impact-stat">
+                <strong>1-Tap Pickup</strong>
+                <span>WhatsApp booking funnel</span>
+              </div>
+            </div>
+
+            <div class="showcase-tech-chips">
+              <span class="tech-chip">Local SEO</span>
+              <span class="tech-chip">WhatsApp Funnel</span>
+              <span class="tech-chip">Mobile-First UI</span>
+              <span class="tech-chip">High-Speed Static</span>
+            </div>
+
+            <div class="showcase-actions">
+              <a class="btn btn-primary" href="https://mouryadrycleaners.in" target="_blank"
+                rel="noopener noreferrer">Visit Website <span class="arrow">↗</span></a>
+              <button class="btn btn-ghost" type="button" data-modal="mourya" onclick="openModal('mourya')">Case
+                Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: HolyGate Foods -->
+        <article class="showcase-card" id="holygate-foods">
+          <div class="showcase-browser">
+            <div class="browser-dots">
+              <span class="b-red"></span>
+              <span class="b-yellow"></span>
+              <span class="b-green"></span>
+            </div>
+            <div class="browser-address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span>https://holygatefoods.com</span>
+            </div>
+          </div>
+          <div class="showcase-preview-wrapper">
+            <img class="showcase-preview-img" src="assets/holygate-desktop.png"
+              alt="HolyGate Foods E-Commerce Store Preview" loading="lazy">
+            <div class="showcase-floating-badge">
+              <span class="badge-icon">🛍️</span>
+              <span>Full D2C E-Commerce Storefront</span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <div class="showcase-category-row">
+              <span class="showcase-tag">D2C E-Commerce · Organic Food</span>
+              <span class="showcase-status">Live in Production</span>
+            </div>
+            <h3 class="showcase-title">HolyGate Foods</h3>
+            <p class="showcase-desc">An elegant e-commerce experience for an organic kitchen staples brand. Featuring
+              dynamic product browsing, unpolished pulses, stone-ground flours, chemical-free desi khand, and dual
+              direct &amp; Amazon Prime checkout paths.</p>
+
+            <div class="showcase-impact-box">
+              <div class="impact-stat highlight">
+                <strong>D2C Store</strong>
+                <span>Custom product catalog</span>
+              </div>
+              <div class="impact-stat">
+                <strong>Amazon Prime</strong>
+                <span>Integrated buy routing</span>
+              </div>
+            </div>
+
+            <div class="showcase-tech-chips">
+              <span class="tech-chip">D2C Storefront</span>
+              <span class="tech-chip">Supabase API</span>
+              <span class="tech-chip">Schema.org SEO</span>
+              <span class="tech-chip">Catalog Search</span>
+            </div>
+
+            <div class="showcase-actions">
+              <a class="btn btn-primary" href="https://holygatefoods.com" target="_blank"
+                rel="noopener noreferrer">Visit Store <span class="arrow">↗</span></a>
+              <button class="btn btn-ghost" type="button" data-modal="holygate" onclick="openModal('holygate')">Case
+                Details</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="about" aria-labelledby="about-heading">
+    <div class="wrap about-layout">
+      <div>
+        <p class="section-label">About TryTecho</p>
+        <h2 class="section-heading" id="about-heading">Your idea deserves <em>good technology.</em></h2>
+        <p class="section-intro">We partner with businesses to turn challenges into useful digital solutions. The aim is
+          straightforward: understand the problem, build with care and make the technology work for the people using it.
+        </p><a class="btn btn-primary" href="#contact" style="margin-top:26px">Work with us <span
+            class="arrow">→</span></a>
+      </div>
+      <div class="about-panel"><strong>Think clearly.<br>Build carefully.</strong>
+        <p>Good technology should make business easier to run—not add another layer of complexity. We focus on clear
+          communication, purposeful design and solutions that can evolve with you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="pricing" aria-labelledby="pricing-heading">
+    <div class="wrap">
+      <p class="section-label">How we work</p>
+      <h2 class="section-heading" id="pricing-heading">The right build for <em>your next step.</em></h2>
+      <p class="section-intro">Every project starts with its goals, scope and constraints. We shape the engagement
+        around the work instead of forcing every business into the same package.</p>
+      <div class="pricing-grid">
+        <article class="price-card">
+          <h3>Launch</h3>
+          <p>For a new website, landing page or first digital presence.</p><strong>Custom quote</strong>
+          <ul>
+            <li>Scope and goal alignment</li>
+            <li>Responsive design</li>
+            <li>Launch-ready build</li>
+          </ul><a class="btn btn-ghost" href="#contact">Discuss a project →</a>
+        </article>
+        <article class="price-card featured">
+          <h3>Build</h3>
+          <p>For custom apps, portals, dashboards and connected systems.</p><strong>Custom quote</strong>
+          <ul>
+            <li>Product planning</li>
+            <li>Custom development</li>
+            <li>Testing and handover</li>
+          </ul><a class="btn btn-primary" href="#contact">Plan your build →</a>
+        </article>
+        <article class="price-card">
+          <h3>Improve</h3>
+          <p>For automation, integrations and ongoing improvements.</p><strong>Custom quote</strong>
+          <ul>
+            <li>Workflow review</li>
+            <li>Integration planning</li>
+            <li>Continuous improvements</li>
+          </ul><a class="btn btn-ghost" href="#contact">Explore options →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="blog" aria-labelledby="blog-heading">
+    <div class="wrap">
+      <p class="section-label">Ideas & insights</p>
+      <h2 class="section-heading" id="blog-heading">Make the next move <em>with clarity.</em></h2>
+      <p class="section-intro">Practical topics to help you think through your next website, app or automation project.
+      </p>
+      <div class="blog-grid">
+        <article class="blog-card"><span>Planning</span>
+          <h3>What should you build first?</h3>
+          <p>Start with the business problem, the people affected and the smallest useful solution.</p>
+        </article>
+        <article class="blog-card"><span>Automation</span>
+          <h3>Where automation helps most</h3>
+          <p>Look for repeatable steps, avoidable handoffs and work that pulls people away from higher-value tasks.</p>
+        </article>
+        <article class="blog-card"><span>Digital products</span>
+          <h3>Design for the way people work</h3>
+          <p>Useful software starts with clear flows and choices that make sense to the people using it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="wrap contact-layout">
+      <div>
+        <p class="section-label">Let’s talk</p>
+        <h2 class="section-heading" id="contact-heading">Have a problem worth <em>solving?</em></h2>
+        <p class="section-intro">Tell us what you are trying to build or improve. We’ll prepare an email draft with your
+          project details so you can review it before sending.</p>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <div class="form-grid">
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name"
+              required placeholder="Name"></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email"
+              autocomplete="email" required placeholder="you@company.com"></div>
+          <div class="field full"><label for="project-type">What do you need?</label><select id="project-type"
+              name="project-type">
+              <option>Website development</option>
+              <option>Mobile app</option>
+              <option>AI & automation</option>
+              <option>Custom software</option>
+              <option>Something else</option>
+            </select></div>
+          <div class="field full"><label for="message">Tell us about your project</label><textarea id="message"
+              name="message" required placeholder="What would you like to solve or build?"></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Prepare project email <span class="arrow">→</span></button>
+        <p class="contact-note">This opens an email draft in your mail app. Before launch, update the contact email in
+          the website script to an inbox you control.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner"><a class="brand" href="#home" aria-label="TryTecho home"><img src="assets/TryTechoLogo.png" alt="TryTecho" class="brand-logo-img"></a><span>© <span id="year"></span> TryTecho. Build
+        today for a smarter tomorrow.</span>
+      <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite" id="toast"></div>
+
+  <!-- Case Study Details Modal -->
+  <div class="case-modal" id="case-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="case-modal-dialog">
+      <button class="modal-close-btn" id="modal-close" type="button" aria-label="Close modal">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+    // Update this address to an inbox that you control before publishing the site.
+    const CONTACT_EMAIL = "hello@trytecho.com";
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.getElementById("primary-nav");
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Open navigation");
+    }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const toast = document.getElementById("toast");
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 4200);
+    }
+    document.getElementById("contact-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const subject = encodeURIComponent(`TryTecho project enquiry — ${data.get("name")}`);
+      const body = encodeURIComponent(
+        `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nProject type: ${data.get("project-type")}\n\nProject details:\n${data.get("message")}`
+      );
+      if (!CONTACT_EMAIL || CONTACT_EMAIL.includes("YOUR_EMAIL")) {
+        showToast("Add your contact email in the website script before using this form.");
+        return;
+      }
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      showToast("Your email app should open with the project details ready to review.");
+    });
+
+    // Case Studies Modal Data & Controller
+    const caseStudiesData = {
+      mourya: {
+        title: "Mourya Dry Cleaners",
+        category: "Local Business · Laundry & Dry Cleaning",
+        url: "https://mouryadrycleaners.in",
+        img: "assets/mourya-desktop.png",
+        statsBadge: "🔥 3–4 Inbound Leads Daily",
+        challenge: "Mourya Dry Cleaners in Gurugram needed to expand beyond walk-in footfall and capture high-intent local online searches for dry cleaning, premium laundry, and home upholstery care without phone booking friction.",
+        solution: "TryTecho architected a high-converting, mobile-first website with instant WhatsApp booking, 1-tap pickup scheduling, clear service menus, and local search engine optimization tailored to Gurugram sectors.",
+        features: [
+          "Instant pickup scheduling and WhatsApp order routing",
+          "Local SEO optimized across Gurugram sectors (DLF, Golf Course Rd, Sohna Rd, etc.)",
+          "Transparent pricing cards for Dry Cleaning, Steam Press, Laundry, and Sofa Care",
+          "Sub-second load times ensuring zero bounce rate from mobile visitors",
+          "Consistently delivers 3 to 4 qualified customer leads every single day"
+        ]
+      },
+      holygate: {
+        title: "HolyGate Foods",
+        category: "D2C E-Commerce · 100% Pure Kitchen Staples",
+        url: "https://holygatefoods.com",
+        img: "assets/holygate-desktop.png",
+        statsBadge: "🛒 Full D2C Storefront + Amazon Integration",
+        challenge: "HolyGate Foods wanted to establish direct-to-consumer brand authority for unpolished pulses, chakki fresh atta, chemical-free desi khand, and healthy seeds, while connecting buyers to both direct checkout and Amazon Prime.",
+        solution: "TryTecho engineered an organic, high-performance web storefront equipped with instant catalog search, category filtering, customer reviews, nutrition transparency, and direct multi-channel purchase paths.",
+        features: [
+          "Dynamic product catalog with interactive category filters & live search",
+          "Dual purchasing pathways (Direct WhatsApp order + verified Amazon Prime buy buttons)",
+          "Rich Schema.org structured data and FAQ markup for Google organic rich snippets",
+          "Supabase-ready architecture for fast catalog scaling and inventory updates",
+          "Rich visual branding that highlights 100% purity, zero chemicals, and farm-fresh quality"
+        ]
+      }
+    };
+
+    const caseModal = document.getElementById("case-modal");
+    const modalContent = document.getElementById("modal-content");
+    const modalClose = document.getElementById("modal-close");
+
+    function openModal(studyKey) {
+      const data = caseStudiesData[studyKey];
+      if (!data) return;
+      modalContent.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;">
+          <span class="showcase-tag">${data.category}</span>
+          <span style="color:var(--teal);font-size:11px;font-weight:700;">${data.statsBadge}</span>
+        </div>
+        <h3 id="modal-title" style="font:700 26px/1.2 Georgia,serif;color:#f7f8f8;margin:0 0 10px;">${data.title}</h3>
+        <p style="font-size:12px;color:#8fa5a3;margin:0 0 16px;font-family:ui-monospace,monospace;">URL: <a href="${data.url}" target="_blank" style="color:var(--teal);text-decoration:underline;">${data.url}</a></p>
+        <img class="modal-hero-img" src="${data.img}" alt="${data.title} Screenshot">
+        
+        <div class="modal-section">
+          <h4>The Challenge</h4>
+          <p>${data.challenge}</p>
+        </div>
+        
+        <div class="modal-section">
+          <h4>What TryTecho Engineered</h4>
+          <p>${data.solution}</p>
+          <ul class="modal-list">
+            ${data.features.map(f => `<li>${f}</li>`).join("")}
+          </ul>
+        </div>
+        
+        <div style="display:flex;gap:12px;margin-top:28px;">
+          <a class="btn btn-primary" href="${data.url}" target="_blank" rel="noopener noreferrer" style="flex:1;">Visit Live Website <span class="arrow">↗</span></a>
+          <button class="btn btn-ghost" type="button" onclick="closeModal()">Close</button>
+        </div>
+      `;
+      caseModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      caseModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+
+    document.querySelectorAll("[data-modal]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-modal");
+        openModal(key);
+      });
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    caseModal.addEventListener("click", e => {
+      if (e.target === caseModal) closeModal();
+    });
+    window.addEventListener("keydown", e => {
+      if (e.key === "Escape" && caseModal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+
+</html>
